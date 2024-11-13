@@ -34,7 +34,7 @@ jQuery("#"+this.questionId+" .InputText").on("input", function() {
     const percentInputs = document.querySelectorAll("input[type=text].InputText");
 //Every time someone types in a number add all the boxes together, update the running total, and display error if applicable.
     function addItUp(){
-        if( document.getElementById('QID487_Total').value > 100 || document.getElementById('QID487_Total').value < 0 ){
+        if( document.getElementById('QID2_Total').value > 100 || document.getElementById('QID2_Total').value < 0 ){
             // hier ist alles schlecht
 alert(alert_text)
  
