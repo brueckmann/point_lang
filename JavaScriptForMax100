@@ -1,0 +1,65 @@
+Qualtrics.SurveyEngine.addOnload(function()
+{
+    /*Place your JavaScript here to run when the page loads*/
+});
+Qualtrics.SurveyEngine.addOnReady(function()
+{
+ 
+        let lang = "${e://Field/Q_Language}", alert_text;
+ 
+    switch (lang) {
+        case "FR":
+            alert_text = "N'entrez pas plus de 100.";
+            break;
+        case "EN":
+            alert_text = "Please not more than 100 in sum.";
+            break;
+        case "DE":
+            alert_text = "Nicht mehr als insgesamt 100 eingeben.";
+            break;
+        case "IT":
+            alert_text = "Non inserire più di 100.";
+            break;
+        default:
+            alert_text = "Please only enter values from 0-100.";
+    }
+ 
+ 
+ 
+jQuery("#"+this.questionId+" .InputText").on("input", function() { 
+    this.value = this.value.replace(/[^0-9]/g,""); 
+});
+ 
+    /*Place your JavaScript here to run when the page is fully displayed*/
+    const percentInputs = document.querySelectorAll("input[type=text].InputText");
+//Every time someone types in a number add all the boxes together, update the running total, and display error if applicable.
+    function addItUp(){
+        if( document.getElementById('QID487_Total').value > 100 || document.getElementById('QID487_Total').value < 0 ){
+            // hier ist alles schlecht
+alert(alert_text)
+ 
+    jQuery('.ValidationError').eq(1).show().html(alert_text);
+        jQuery('#NextButton').prop('disabled',true);
+ 
+        } else {
+               jQuery('.ValidationError').eq(1).hide();
+         jQuery('#NextButton').prop('disabled',false);
+        }
+    }
+
+ 
+ 
+//When page loads up we want to listen to all of the text boxes. Add the above function to the boxes.
+    for (index = 0; index < percentInputs.length; ++index) {
+        percentInputs[index].addEventListener("keyup", addItUp);
+    percentInputs[index].setAttribute("pattern", "^(0|10|20|30|40|50|60|70|80|90|100)$");
+    }
+    addItUp();
+ 
+ 
+ 
+});
+Qualtrics.SurveyEngine.addOnUnload(function()
+{
+    /*Place your JavaScript here to run when the page is unloaded*/
+});
