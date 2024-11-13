@@ -3,3 +3,5 @@ Check the link to the survey https://unibe.eu.qualtrics.com/jfe/form/SV_87wxbd2O
 You may pass with less than but not with more than 100 points. 
 
 The error message in the JavaScript comes in 4 languages.
+
+In my JavaScript code you need to know the questions QID. You find it using the source text view on the distributed survey. 
