@@ -5,3 +5,5 @@ You may pass with less than but not with more than 100 points.
 The error message in the JavaScript comes in 4 languages.
 
 In my JavaScript code you need to know the questions QID. You find it using the source text view on the distributed survey. 
+
+Many thanks to Michael Schmid for excellent help with this task!
